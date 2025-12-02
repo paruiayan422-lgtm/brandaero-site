@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayan – Creative Graphic Designer Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #2977f5;
+      --bg: #f8f8fa;
+      --text: #171717;
+      --muted: #ababab;
+      --border: #ededed;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0;}
+    body { 
+      font-family: 'Inter', Arial, sans-serif; 
+      background: var(--bg); 
+      color: var(--text); 
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    header {
+      padding: 2rem 4vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .logo {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--accent);
+      letter-spacing: -1px;
+    }
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+    .hero {
+      padding: 6rem 4vw 3rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 3rem;
+      background: var(--bg);
+      justify-content: space-between;
+    }
+    .hero-text {
+      flex: 1 1 350px;
+    }
+    .hero-title {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 3rem;
+      font-weight: 900;
+      margin-bottom: 1.2rem;
+    }
+    .hero-accent { color: var(--accent);}
+    .hero-desc {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      color: #555;
+      max-width: 35ch;
+    }
+    .cta {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 999px;
+      padding: 0.9em 2em;
+      box-shadow: 0 1px 10px rgba(41, 119, 245, 0.11);
+      transition: background 0.2s;
+      text-decoration: none;
+    }
+    .cta:hover {
+      background: #2361ce;
+    }
+    .hero-img {
+      flex: 1 1 300px;
+      min-width: 260px;
+      max-width: 390px;
+      border-radius: 2rem;
+      overflow: hidden;
+      box-shadow: 0 4px 32px rgba(23,23,23,0.07);
+    }
+    .hero-img img { width: 100%; display: block; }
+
+    .section {
+      padding: 5rem 4vw;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-title {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 900;
+      font-size: 2.2rem;
+      color: var(--text);
+      margin-bottom: 2rem;
+      letter-spacing: -1px;
+      text-align: center;
+    }
+    /* Featured Project */
+    .featured {
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+      align-items: center;
+      background: #fff;
+      border-radius: 1.5rem;
+      box-shadow: 0 0 30px 0 rgba(23,23,23,0.04);
+      padding: 2.5rem 2rem;
+      margin-bottom: 3rem;
+    }
+    .featured-img {
+      max-width: 320px; min-width: 180px; flex: 1 0 200px;
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+    .featured-img img { width: 100%; display: block;}
+    .featured-info {
+      flex: 2 1 300px;
+    }
+    .featured-title {
+      font-size: 1.5rem;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+    }
+    .featured-tags { color: var(--accent); letter-spacing: 2px; font-size: .92rem;}
+    .featured-desc { margin: 1rem 0 0.5rem; color: #444;}
+    .featured-link a {
+      color: var(--accent); font-weight: 600; text-decoration: none;
+      border-bottom: 1px solid var(--accent); transition: color 0.15s;
+    }
+    .featured-link a:hover { color: #2361ce; }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+    .gallery-item {
+      background: #fff;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 2px 15px rgba(23,23,23,0.07);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.12s;
+    }
+    .gallery-item:hover { transform: translateY(-4px) scale(1.03);}
+    .gallery-thumb { width: 100%; min-height: 120px; object-fit: cover;}
+    .gallery-label {
+      padding: 1rem 1.2rem 1.1rem;
+      font-size: 1.1rem;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      color: var(--accent);
+      background: #fafafc;
+    }
+
+    /* Services */
+    .services-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .service {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 2.2rem 2rem;
+      flex: 1 1 230px;
+      min-width: 210px;
+      max-width: 310px;
+      text-align: center;
+      box-shadow: 0 1px 12px rgba(23,23,23,0.07);
+      margin-bottom: 2rem;
+      transition: box-shadow 0.15s;
+    }
+    .service:hover { box-shadow: 0 6px 32px rgba(41,119,245,0.15);}
+    .service-icon {
+      font-size: 2.8rem; color: var(--accent); margin-bottom: 1rem;
+      display: block;
+    }
+    .service-title {
+      font-weight: 700;
+      font-family: 'Montserrat', Arial, sans-serif;
+      margin-bottom: 0.5rem;
+    }
+    .service-desc {
+      color: #555;
+      font-size: 1.03rem;
+    }
+
+    /* About */
+    .about-content {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .about-img {
+      width: 90px; height: 90px;
+      border-radius: 100%;
+      margin: 0 auto 1.8rem;
+      object-fit: cover;
+    }
+    .about-tools {
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .tool {
+      background: #fff;
+      border-radius: 1.5rem;
+      padding: 1rem 1.6rem;
+      color: var(--accent);
+      font-weight: 700;
+      box-shadow: 0 0px 11px rgba(23,23,23,0.05);
+      margin-bottom: 0.2rem;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 1.05rem;
+      letter-spacing: 2px;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      max-width: 440px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 2px 24px rgba(41,119,245,0.06);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+    .input-group { display: flex; flex-direction: column; gap: 0.6rem;}
+    label { font-weight: 600; color: var(--text);}
+    input, textarea {
+      padding: 0.9em .8em;
+      border: 1px solid var(--border);
+      border-radius: .8em;
+      font-size: 1.08rem;
+      background: #fafafa;
+      font-family: inherit;
+    }
+    textarea { min-height: 120px;}
+    .form-btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 99px;
+      font-weight: 700;
+      font-size: 1.15rem;
+      padding: 0.8em 2em;
+      cursor: pointer;
+      transition: background .18s;
+    }
+    .form-btn:hover { background: #2361ce;}
+
+    /* Footer */
+    footer {
+      background: #fff;
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      text-align: center;
+      color: #888;
+      font-size: 1rem;
+      padding: 2rem 4vw 1.5rem;
+      letter-spacing: 1px;
+    }
+    .footer-socials a {
+      color: var(--accent);
+      margin: 0 0.7rem;
+      font-size: 1.3em;
+      text-decoration: none;
+      transition: color .13s;
+    }
+    .footer-socials a:hover { color: #2361ce; }
+
+    @media (max-width: 900px){
+      .hero, .featured { flex-direction: column; text-align: center;}
+      .hero-img, .featured-img { max-width: 100%; }
+    }
+    @media (max-width: 650px){
+      header, .section { padding-left: 3vw; padding-right: 3vw;}
+      .hero { padding-left: 3vw; padding-right: 3vw;}
+    }
+    @media (max-width: 500px){
+      .hero-title { font-size: 2rem;}
+      .section-title { font-size: 1.2rem;}
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <header>
+    <div class="logo">Ayan Parui</div>
+    <nav>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1 class="hero-title">
+        Bold, Modern
+        <span class="hero-accent">Graphic Design</span> <br>
+        for Brands that Stand Out
+      </h1>
+      <div class="hero-desc">
+        Hi! I’m Ayan Parui, a freelance designer specializing in branding, campaigns, posters & digital content. Let’s make your ideas shine.
+      </div>
+      <a href="#portfolio" class="cta">View My Work</a>
+    </div>
+    <div class="hero-img">
+      <img width="600px" src="https://i.postimg.cc/VvCcSvD1/photo-1626785774573-4b799315345d.avif" alt="Featured Project Preview">
+    </div>
+  </section>
+
+  <!-- Featured Project -->
+  <section class="section" id="featured">
+    <div class="section-title">Featured Project</div>
+    <div class="featured">
+      <div class="featured-img">
+        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Project Cover">
+      </div>
+      <div class="featured-info">
+        <div class="featured-title">Brand Identity: NuWave Coffee</div>
+        <div class="featured-tags">Branding &amp; Packaging</div>
+        <div class="featured-desc">Complete visual identity for a rising coffee brand. Logo, packaging, social template design, campaign graphics, and digital brand guidelines delivered with a bold, modern aesthetic.
+        </div>
+        <div class="featured-link">
+          <a href="#portfolio">See Details</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Gallery -->
+  <section class="section" id="portfolio">
+    <div class="section-title">Portfolio</div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="Branding" class="gallery-thumb">
+        <div class="gallery-label">Branding</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?auto=format&fit=crop&w=400&q=80" alt="Poster" class="gallery-thumb">
+        <div class="gallery-label">Posters</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Campaign" class="gallery-thumb">
+        <div class="gallery-label">Digital Campaign</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=400&q=80" alt="Social Media" class="gallery-thumb">
+        <div class="gallery-label">Social Media</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section" id="services">
+    <div class="section-title">Services</div>
+    <div class="services-list">
+      <div class="service">
+        <span class="service-icon">&#128395;</span>
+        <div class="service-title">Brand Identity</div>
+        <div class="service-desc"> Logos, visual systems &amp; branding for memorable businesses.</div>
+      </div>
+      <div class="service">
+        <span class="service-icon">&#127912;</span>
+        <div class="service-title">Poster Design</div>
+        <div class="service-desc">Striking posters for events, launches, and promotions.</div>
+      </div>
+      <div class="service">
+        <span class="service-icon">&#128187;</span>
+        <div class="service-title">Digital Campaigns</div>
+        <div class="service-desc">Creative assets for web, email, and digital advertising.</div>
+      </div>
+      <div class="service">
+        <span class="service-icon">&#128241;</span>
+        <div class="service-title">Social Media Content</div>
+        <div class="service-desc">Branded visuals for IG, TikTok, LinkedIn, and more.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="section-title">About Me</div>
+    <div class="about-content">
+      <img src="https://i.postimg.cc/m2LKJhJC/549015dae7dc5af5e17d1f84f105e0a8-2.jpg" class="about-img" alt="Portrait">
+      <div>
+        Hi! I’m Ayan Parui — a passionate creative based in New York, blending strategy and bold visuals to help brands communicate effectively.<br><br>
+        With 7+ years in design and digital media, I collaborate with companies and startups worldwide on branding, campaigns, and digital content. Let’s create something amazing together!
+      </div>
+      <div class="about-tools">
+        <div class="tool">Photoshop</div>
+        <div class="tool">Illustrator</div>
+        <div class="tool">MidJourney AI</div>
+        <div class="tool">Figma</div>
+        <div class="tool">Canva</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="section-title">Contact Me</div>
+    <form class="contact-form" autocomplete="off">
+      <div class="input-group">
+        <label for="fname">Name</label>
+        <input id="fname" type="text" placeholder="Your name" required>
+      </div>
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="hello@email.com" required>
+      </div>
+      <div class="input-group">
+        <label for="msg">How can I help you?</label>
+        <textarea id="msg" placeholder="Message or project details" required></textarea>
+      </div>
+      <button type="submit" class="form-btn">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-socials">
+      <a href="#" target="_blank" rel="noopener" aria-label="Instagram">&#x1F30E;</a>
+      <a href="#" target="_blank" rel="noopener" aria-label="Behance">&#128187;</a>
+      <a href="#" target="_blank" rel="noopener" aria-label="Dribbble">&#127912;</a>
+      <a href="#" target="_blank" rel="noopener" aria-label="Email">&#9993;</a>
+    </div>
+    <div style="margin-top:1rem">
+      &copy; 2025 Ayan Parui. Crafted with creativity &amp; coffee.
+    </div>
+  </footer>
+</body>
+</html>
