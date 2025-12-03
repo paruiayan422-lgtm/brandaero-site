@@ -1,470 +1,1232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ayan – Creative Graphic Designer Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Basic SEO -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BrandCraft Studio – Brand Marketing & UX Design</title>
+  <meta name="description" content="BrandCraft Studio helps startups and growing brands with strategic brand marketing, UX design, and SEO-friendly digital experiences. Book a consultation today." />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="BrandCraft Studio – Brand Marketing & UX Design" />
+  <meta property="og:description" content="Strategic brand marketing, UX design and SEO content that turns clicks into clients. Book a strategy session today." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.com" />
+  <meta property="og:image" content="https://yourdomain.com/og-image.jpg" />
+
+  <!-- Schema.org JSON-LD (basic Organization + Website) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "BrandCraft Studio",
+    "url": "https://yourdomain.com",
+    "logo": "https://yourdomain.com/logo.png",
+    "sameAs": [
+      "https://www.linkedin.com/in/your-profile",
+      "https://x.com/your-handle"
+    ]
+  }
+  </script>
+
   <style>
     :root {
-      --accent: #2977f5;
-      --bg: #f8f8fa;
-      --text: #171717;
-      --muted: #ababab;
-      --border: #ededed;
+      --bg: #050816;
+      --bg-alt: #090f1f;
+      --accent: #6366f1;
+      --accent-soft: rgba(99, 102, 241, 0.15);
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --border: #1f2933;
+      --error: #f97373;
+      --radius: 18px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.7);
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Inter", "Segoe UI", sans-serif;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0;}
-    body { 
-      font-family: 'Inter', Arial, sans-serif; 
-      background: var(--bg); 
-      color: var(--text); 
-      min-height: 100vh;
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at top, #111827 0, #020617 50%, #020617 100%);
+      color: var(--text);
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .wrapper {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 4rem;
+    }
+
     header {
-      padding: 2rem 4vw;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #fff;
-      border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.9), transparent);
     }
-    .logo {
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-size: 2rem;
-      font-weight: 900;
-      color: var(--accent);
-      letter-spacing: -1px;
-    }
-    nav {
-      display: flex;
-      gap: 2rem;
-    }
-    nav a {
-      color: var(--text);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: color 0.2s;
-    }
-    nav a:hover {
-      color: var(--accent);
-    }
-    .hero {
-      padding: 6rem 4vw 3rem;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 3rem;
-      background: var(--bg);
-      justify-content: space-between;
-    }
-    .hero-text {
-      flex: 1 1 350px;
-    }
-    .hero-title {
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-size: 3rem;
-      font-weight: 900;
-      margin-bottom: 1.2rem;
-    }
-    .hero-accent { color: var(--accent);}
-    .hero-desc {
-      font-size: 1.3rem;
-      margin-bottom: 2rem;
-      color: #555;
-      max-width: 35ch;
-    }
-    .cta {
-      display: inline-block;
-      background: var(--accent);
-      color: #fff;
-      font-size: 1.1rem;
-      font-weight: 700;
-      border: none;
-      border-radius: 999px;
-      padding: 0.9em 2em;
-      box-shadow: 0 1px 10px rgba(41, 119, 245, 0.11);
-      transition: background 0.2s;
-      text-decoration: none;
-    }
-    .cta:hover {
-      background: #2361ce;
-    }
-    .hero-img {
-      flex: 1 1 300px;
-      min-width: 260px;
-      max-width: 390px;
-      border-radius: 2rem;
-      overflow: hidden;
-      box-shadow: 0 4px 32px rgba(23,23,23,0.07);
-    }
-    .hero-img img { width: 100%; display: block; }
 
-    .section {
-      padding: 5rem 4vw;
-      max-width: 1200px;
+    .nav {
+      max-width: 1120px;
       margin: 0 auto;
-    }
-    .section-title {
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-weight: 900;
-      font-size: 2.2rem;
-      color: var(--text);
-      margin-bottom: 2rem;
-      letter-spacing: -1px;
-      text-align: center;
-    }
-    /* Featured Project */
-    .featured {
+      padding: 1.25rem 1.25rem 0.75rem;
       display: flex;
-      gap: 3rem;
-      flex-wrap: wrap;
       align-items: center;
-      background: #fff;
-      border-radius: 1.5rem;
-      box-shadow: 0 0 30px 0 rgba(23,23,23,0.04);
-      padding: 2.5rem 2rem;
-      margin-bottom: 3rem;
+      justify-content: space-between;
+      gap: 1.5rem;
     }
-    .featured-img {
-      max-width: 320px; min-width: 180px; flex: 1 0 200px;
-      border-radius: 1rem;
-      overflow: hidden;
-    }
-    .featured-img img { width: 100%; display: block;}
-    .featured-info {
-      flex: 2 1 300px;
-    }
-    .featured-title {
-      font-size: 1.5rem;
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-weight: 700;
-      margin-bottom: 0.7rem;
-    }
-    .featured-tags { color: var(--accent); letter-spacing: 2px; font-size: .92rem;}
-    .featured-desc { margin: 1rem 0 0.5rem; color: #444;}
-    .featured-link a {
-      color: var(--accent); font-weight: 600; text-decoration: none;
-      border-bottom: 1px solid var(--accent); transition: color 0.15s;
-    }
-    .featured-link a:hover { color: #2361ce; }
 
-    /* Gallery */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2rem;
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
     }
-    .gallery-item {
-      background: #fff;
-      border-radius: 1rem;
-      overflow: hidden;
-      box-shadow: 0 2px 15px rgba(23,23,23,0.07);
+
+    .logo-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 20% 20%, #a855f7, #6366f1 40%, #0ea5e9 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+      box-shadow: 0 0 0 2px rgba(148, 163, 184, 0.2),
+        0 12px 30px rgba(15, 23, 42, 0.75);
+    }
+
+    .logo-text {
       display: flex;
       flex-direction: column;
-      transition: transform 0.12s;
+      gap: 2px;
     }
-    .gallery-item:hover { transform: translateY(-4px) scale(1.03);}
-    .gallery-thumb { width: 100%; min-height: 120px; object-fit: cover;}
-    .gallery-label {
-      padding: 1rem 1.2rem 1.1rem;
+
+    .logo-text strong {
+      font-size: 1.05rem;
+      letter-spacing: 0.03em;
+    }
+
+    .logo-text span {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #a855f7, #6366f1);
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      font-size: 0.85rem;
+      background: radial-gradient(circle at top left, #111827, #020617);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease,
+        border-color 0.12s ease;
+      box-shadow: 0 5px 18px rgba(15, 23, 42, 0.6);
+    }
+
+    .nav-cta span {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #e5e7eb;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      border-color: rgba(129, 140, 248, 0.7);
+      box-shadow: 0 12px 30px rgba(30, 64, 175, 0.55);
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+      padding-top: 2.5rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.18rem 0.6rem 0.18rem 0.18rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .pill-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #a855f7, #6366f1 40%, #22c55e 120%);
+      box-shadow: 0 0 15px rgba(52, 211, 153, 0.7);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 4vw, 3rem);
+      line-height: 1.15;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .gradient-text {
+      background: linear-gradient(120deg, #a855f7, #6366f1, #06b6d4);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      color: var(--muted);
+      max-width: 520px;
+      font-size: 0.98rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .badge {
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      font-size: 0.75rem;
+      color: #e5e7eb;
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 0.75rem 1.3rem;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      font-weight: 500;
+      transition: transform 0.12s ease, box-shadow 0.12s ease,
+        background 0.15s ease, border-color 0.12s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+      color: white;
+      box-shadow: 0 18px 38px rgba(79, 70, 229, 0.6);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 24px 50px rgba(79, 70, 229, 0.8);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--muted);
+    }
+
+    .btn-outline:hover {
+      border-color: rgba(129, 140, 248, 0.7);
+      background: rgba(15, 23, 42, 0.7);
+      color: #e5e7eb;
+    }
+
+    .hero-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 0.95rem;
+      color: #e5e7eb;
+    }
+
+    /* Hero right card */
+    .hero-card {
+      border-radius: var(--radius);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      background: radial-gradient(circle at top left, #111827, #020617);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -60%;
+      background: radial-gradient(circle at top, rgba(129, 140, 248, 0.1), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card-title {
+      font-size: 0.9rem;
+      color: #e5e7eb;
+    }
+
+    .hero-card-pill {
+      font-size: 0.7rem;
+      padding: 0.1rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--muted);
+    }
+
+    .hero-steps {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-step {
+      display: flex;
+      gap: 0.6rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-step-number {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .hero-step-body {
+      font-size: 0.8rem;
+    }
+
+    .hero-step-body strong {
+      display: block;
+      margin-bottom: 1px;
+      color: #e5e7eb;
+    }
+
+    .hero-step-body span {
+      color: var(--muted);
+    }
+
+    .hero-score-card {
+      position: relative;
+      z-index: 1;
+      border-radius: 16px;
+      padding: 0.9rem;
+      background: radial-gradient(circle at top left, rgba(129, 140, 248, 0.18), rgba(15, 23, 42, 0.98));
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.8rem;
+    }
+
+    .hero-score-main span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.7rem;
+    }
+
+    .hero-score-main strong {
       font-size: 1.1rem;
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-weight: 700;
-      color: var(--accent);
-      background: #fafafc;
+    }
+
+    .hero-score-tag {
+      font-size: 0.7rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: #4ade80;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .hero-score-tag small {
+      color: var(--muted);
+    }
+
+    /* Section shared */
+    section {
+      margin-top: 3.5rem;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1.5rem;
+      margin-bottom: 1.8rem;
+      flex-wrap: wrap;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 420px;
     }
 
     /* Services */
-    .services-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
-    }
-    .service {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 1rem;
-      padding: 2.2rem 2rem;
-      flex: 1 1 230px;
-      min-width: 210px;
-      max-width: 310px;
-      text-align: center;
-      box-shadow: 0 1px 12px rgba(23,23,23,0.07);
-      margin-bottom: 2rem;
-      transition: box-shadow 0.15s;
-    }
-    .service:hover { box-shadow: 0 6px 32px rgba(41,119,245,0.15);}
-    .service-icon {
-      font-size: 2.8rem; color: var(--accent); margin-bottom: 1rem;
-      display: block;
-    }
-    .service-title {
-      font-weight: 700;
-      font-family: 'Montserrat', Arial, sans-serif;
-      margin-bottom: 0.5rem;
-    }
-    .service-desc {
-      color: #555;
-      font-size: 1.03rem;
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.3rem;
     }
 
-    /* About */
-    .about-content {
-      max-width: 600px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .about-img {
-      width: 90px; height: 90px;
-      border-radius: 100%;
-      margin: 0 auto 1.8rem;
-      object-fit: cover;
-    }
-    .about-tools {
-      margin-top: 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
-    }
-    .tool {
-      background: #fff;
-      border-radius: 1.5rem;
-      padding: 1rem 1.6rem;
-      color: var(--accent);
-      font-weight: 700;
-      box-shadow: 0 0px 11px rgba(23,23,23,0.05);
-      margin-bottom: 0.2rem;
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-size: 1.05rem;
-      letter-spacing: 2px;
+    .card {
+      border-radius: var(--radius);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 1), #020617);
+      padding: 1rem;
+      box-shadow: 0 15px 35px rgba(15, 23, 42, 0.9);
+      font-size: 0.9rem;
     }
 
-    /* Contact Form */
-    .contact-form {
-      max-width: 440px;
-      margin: 0 auto;
-      background: #fff;
-      border-radius: 1rem;
-      box-shadow: 0 2px 24px rgba(41,119,245,0.06);
-      padding: 2.5rem 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.4rem;
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
     }
-    .input-group { display: flex; flex-direction: column; gap: 0.6rem;}
-    label { font-weight: 600; color: var(--text);}
-    input, textarea {
-      padding: 0.9em .8em;
-      border: 1px solid var(--border);
-      border-radius: .8em;
-      font-size: 1.08rem;
-      background: #fafafa;
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.84rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .pill-mini {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .card ul {
+      list-style: none;
+      font-size: 0.8rem;
+      color: #e5e7eb;
+    }
+
+    .card ul li {
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .card ul li::before {
+      content: "◆";
+      font-size: 0.55rem;
+      color: #818cf8;
+    }
+
+    /* SEO section */
+    .seo-section {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .seo-snippet {
+      border-radius: var(--radius);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      background: radial-gradient(circle at top left, #020617, #020617);
+      padding: 0.9rem 1rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.9);
+    }
+
+    .seo-snippet-url {
+      color: #22c55e;
+      margin-bottom: 0.15rem;
+    }
+
+    .seo-snippet-title {
+      color: #e5e7eb;
+      font-size: 0.82rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .seo-snippet-extra {
+      font-size: 0.7rem;
+      color: #6b7280;
+      margin-bottom: 0.1rem;
+    }
+
+    .seo-snippet-desc span {
+      color: #e5e7eb;
+    }
+
+    .seo-points {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .seo-points ul {
+      margin-top: 0.6rem;
+      list-style: none;
+    }
+
+    .seo-points li {
+      margin-bottom: 0.3rem;
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .seo-points li::before {
+      content: "#";
+      color: #22d3ee;
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+
+    /* Appointment section */
+    .booking-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    form {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .field-group {
+      display: grid;
+      gap: 0.3rem;
+      font-size: 0.85rem;
+    }
+
+    label {
+      color: #e5e7eb;
+      font-size: 0.82rem;
+    }
+
+    input,
+    select,
+    textarea {
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.9);
+      padding: 0.55rem 0.65rem;
+      color: #e5e7eb;
       font-family: inherit;
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.14s ease, box-shadow 0.14s ease,
+        background 0.14s ease;
     }
-    textarea { min-height: 120px;}
-    .form-btn {
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      border-radius: 99px;
-      font-weight: 700;
-      font-size: 1.15rem;
-      padding: 0.8em 2em;
-      cursor: pointer;
-      transition: background .18s;
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: rgba(129, 140, 248, 0.9);
+      box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.8);
+      background: rgba(15, 23, 42, 1);
     }
-    .form-btn:hover { background: #2361ce;}
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .field-inline {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .note {
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .error-message {
+      margin-top: 0.25rem;
+      color: var(--error);
+      font-size: 0.75rem;
+      display: none;
+    }
+
+    .success-message {
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+      color: #22c55e;
+      display: none;
+    }
+
+    .booking-aside {
+      border-radius: var(--radius);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      background: radial-gradient(circle at top left, #020617, #020617);
+      padding: 1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.9);
+    }
+
+    .slots {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.5rem;
+      margin-top: 0.6rem;
+    }
+
+    .slot {
+      padding: 0.35rem 0.45rem;
+      border-radius: 999px;
+      border: 1px dashed rgba(148, 163, 184, 0.4);
+      font-size: 0.78rem;
+      text-align: center;
+      color: #e5e7eb;
+    }
+
+    /* Blog */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .blog-card {
+      border-radius: var(--radius);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      background: radial-gradient(circle at top left, #020617, #020617);
+      padding: 0.9rem;
+      font-size: 0.85rem;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.9);
+    }
+
+    .blog-tag {
+      font-size: 0.7rem;
+      color: #a5b4fc;
+      margin-bottom: 0.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .blog-card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .blog-meta {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .blog-card p {
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .blog-card a.read-more {
+      font-size: 0.78rem;
+      color: #a5b4fc;
+    }
 
     /* Footer */
     footer {
-      background: #fff;
-      border-top: 1px solid var(--border);
-      margin-top: 4rem;
-      text-align: center;
-      color: #888;
-      font-size: 1rem;
-      padding: 2rem 4vw 1.5rem;
-      letter-spacing: 1px;
+      margin-top: 3rem;
+      border-top: 1px solid rgba(15, 23, 42, 0.9);
+      padding-top: 1.2rem;
+      padding-bottom: 0.5rem;
+      font-size: 0.78rem;
+      color: var(--muted);
     }
-    .footer-socials a {
-      color: var(--accent);
-      margin: 0 0.7rem;
-      font-size: 1.3em;
-      text-decoration: none;
-      transition: color .13s;
-    }
-    .footer-socials a:hover { color: #2361ce; }
 
-    @media (max-width: 900px){
-      .hero, .featured { flex-direction: column; text-align: center;}
-      .hero-img, .featured-img { max-width: 100%; }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
-    @media (max-width: 650px){
-      header, .section { padding-left: 3vw; padding-right: 3vw;}
-      .hero { padding-left: 3vw; padding-right: 3vw;}
+
+    .footer-links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
     }
-    @media (max-width: 500px){
-      .hero-title { font-size: 2rem;}
-      .section-title { font-size: 1.2rem;}
+
+    .footer-links a {
+      color: var(--muted);
+    }
+
+    .footer-links a:hover {
+      color: #e5e7eb;
+    }
+
+    @media (max-width: 820px) {
+      .hero,
+      .seo-section,
+      .booking-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-top: 2rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-card {
+        order: -1;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Navigation -->
   <header>
-    <div class="logo">Ayan Parui</div>
-    <nav>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
+    <nav class="nav">
+      <div class="nav-left">
+        <div class="logo-mark" aria-hidden="true">B</div>
+        <div class="logo-text">
+          <strong>BrandCraft Studio</strong>
+          <span>Brand Marketing · UX Design</span>
+        </div>
+      </div>
+      <div class="nav-links" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#seo">SEO</a>
+        <a href="#booking">Appointments</a>
+        <a href="#blog">Blog</a>
+      </div>
+      <button class="nav-cta" onclick="document.getElementById('booking').scrollIntoView({behavior: 'smooth'})">
+        <span>Book a call</span>
+        <span aria-hidden="true">↗</span>
+      </button>
     </nav>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-text">
-      <h1 class="hero-title">
-        Bold, Modern
-        <span class="hero-accent">Graphic Design</span> <br>
-        for Brands that Stand Out
-      </h1>
-      <div class="hero-desc">
-        Hi! I’m Ayan Parui, a freelance designer specializing in branding, campaigns, posters & digital content. Let’s make your ideas shine.
-      </div>
-      <a href="#portfolio" class="cta">View My Work</a>
-    </div>
-    <div class="hero-img">
-      <img width="600px" src="https://i.postimg.cc/VvCcSvD1/photo-1626785774573-4b799315345d.avif" alt="Featured Project Preview">
-    </div>
-  </section>
-
-  <!-- Featured Project -->
-  <section class="section" id="featured">
-    <div class="section-title">Featured Project</div>
-    <div class="featured">
-      <div class="featured-img">
-        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Project Cover">
-      </div>
-      <div class="featured-info">
-        <div class="featured-title">Brand Identity: NuWave Coffee</div>
-        <div class="featured-tags">Branding &amp; Packaging</div>
-        <div class="featured-desc">Complete visual identity for a rising coffee brand. Logo, packaging, social template design, campaign graphics, and digital brand guidelines delivered with a bold, modern aesthetic.
-        </div>
-        <div class="featured-link">
-          <a href="#portfolio">See Details</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Portfolio Gallery -->
-  <section class="section" id="portfolio">
-    <div class="section-title">Portfolio</div>
-    <div class="gallery-grid">
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="Branding" class="gallery-thumb">
-        <div class="gallery-label">Branding</div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?auto=format&fit=crop&w=400&q=80" alt="Poster" class="gallery-thumb">
-        <div class="gallery-label">Posters</div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Campaign" class="gallery-thumb">
-        <div class="gallery-label">Digital Campaign</div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=400&q=80" alt="Social Media" class="gallery-thumb">
-        <div class="gallery-label">Social Media</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section class="section" id="services">
-    <div class="section-title">Services</div>
-    <div class="services-list">
-      <div class="service">
-        <span class="service-icon">&#128395;</span>
-        <div class="service-title">Brand Identity</div>
-        <div class="service-desc"> Logos, visual systems &amp; branding for memorable businesses.</div>
-      </div>
-      <div class="service">
-        <span class="service-icon">&#127912;</span>
-        <div class="service-title">Poster Design</div>
-        <div class="service-desc">Striking posters for events, launches, and promotions.</div>
-      </div>
-      <div class="service">
-        <span class="service-icon">&#128187;</span>
-        <div class="service-title">Digital Campaigns</div>
-        <div class="service-desc">Creative assets for web, email, and digital advertising.</div>
-      </div>
-      <div class="service">
-        <span class="service-icon">&#128241;</span>
-        <div class="service-title">Social Media Content</div>
-        <div class="service-desc">Branded visuals for IG, TikTok, LinkedIn, and more.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section class="section" id="about">
-    <div class="section-title">About Me</div>
-    <div class="about-content">
-      <img src="https://i.postimg.cc/m2LKJhJC/549015dae7dc5af5e17d1f84f105e0a8-2.jpg" class="about-img" alt="Portrait">
+  <main class="wrapper">
+    <!-- HERO -->
+    <section class="hero" id="top">
       <div>
-        Hi! I’m Ayan Parui — a passionate creative based in New York, blending strategy and bold visuals to help brands communicate effectively.<br><br>
-        With 7+ years in design and digital media, I collaborate with companies and startups worldwide on branding, campaigns, and digital content. Let’s create something amazing together!
-      </div>
-      <div class="about-tools">
-        <div class="tool">Photoshop</div>
-        <div class="tool">Illustrator</div>
-        <div class="tool">MidJourney AI</div>
-        <div class="tool">Figma</div>
-        <div class="tool">Canva</div>
-      </div>
-    </div>
-  </section>
+        <div class="pill">
+          <div class="pill-dot"></div>
+          Conversion-first design & marketing studio
+        </div>
+        <h1>
+          Turn <span class="gradient-text">curious clicks</span> into loyal clients.
+        </h1>
+        <p class="hero-subtitle">
+          We blend UX design, brand strategy and SEO-driven content to craft digital experiences
+          that feel good <em>and</em> perform even better.
+        </p>
 
-  <!-- Contact -->
-  <section class="section" id="contact">
-    <div class="section-title">Contact Me</div>
-    <form class="contact-form" autocomplete="off">
-      <div class="input-group">
-        <label for="fname">Name</label>
-        <input id="fname" type="text" placeholder="Your name" required>
-      </div>
-      <div class="input-group">
-        <label for="email">Email</label>
-        <input id="email" type="email" placeholder="hello@email.com" required>
-      </div>
-      <div class="input-group">
-        <label for="msg">How can I help you?</label>
-        <textarea id="msg" placeholder="Message or project details" required></textarea>
-      </div>
-      <button type="submit" class="form-btn">Send Message</button>
-    </form>
-  </section>
+        <div class="hero-highlights">
+          <span class="badge">Brand Systems & Design Language</span>
+          <span class="badge">Landing Pages that Convert</span>
+          <span class="badge">SEO-ready Content & Blogs</span>
+        </div>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-socials">
-      <a href="#" target="_blank" rel="noopener" aria-label="Instagram">&#x1F30E;</a>
-      <a href="#" target="_blank" rel="noopener" aria-label="Behance">&#128187;</a>
-      <a href="#" target="_blank" rel="noopener" aria-label="Dribbble">&#127912;</a>
-      <a href="#" target="_blank" rel="noopener" aria-label="Email">&#9993;</a>
-    </div>
-    <div style="margin-top:1rem">
-      &copy; 2025 Ayan Parui. Crafted with creativity &amp; coffee.
-    </div>
-  </footer>
+        <div class="hero-ctas">
+          <button class="btn btn-primary" onclick="document.getElementById('booking').scrollIntoView({behavior: 'smooth'})">
+            Book a free 20-min strategy call
+          </button>
+          <a href="#blog" class="btn btn-outline">Browse UX & SEO insights</a>
+        </div>
+
+        <div class="hero-metrics" aria-label="Studio highlights">
+          <div class="metric">
+            <strong>30+ brands</strong>
+            launched or redesigned
+          </div>
+          <div class="metric">
+            <strong>2x–5x growth</strong>
+            in key conversions
+          </div>
+          <div class="metric">
+            <strong>SEO-first</strong>
+            from wireframe to copy
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="How we work overview">
+        <div class="hero-card-header">
+          <div>
+            <p class="hero-card-title">UX-led brand growth</p>
+            <p style="font-size:0.75rem;color:var(--muted);">
+              Three steps to a clear, high-converting experience.
+            </p>
+          </div>
+          <span class="hero-card-pill">For SaaS · Creators · Service brands</span>
+        </div>
+
+        <div class="hero-steps">
+          <div class="hero-step">
+            <div class="hero-step-number">1</div>
+            <div class="hero-step-body">
+              <strong>Audit & clarity</strong>
+              <span>We review your brand, UX, analytics and search footprint.</span>
+            </div>
+          </div>
+          <div class="hero-step">
+            <div class="hero-step-number">2</div>
+            <div class="hero-step-body">
+              <strong>Experience & content</strong>
+              <span>We redesign journeys and write SEO-smart content that matches user intent.</span>
+            </div>
+          </div>
+          <div class="hero-step">
+            <div class="hero-step-number">3</div>
+            <div class="hero-step-body">
+              <strong>Measure & refine</strong>
+              <span>We track signups, leads and search visibility to keep improving.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-score-card">
+          <div class="hero-score-main">
+            <span>Recent project</span>
+            <strong>+171% leads</strong>
+          </div>
+          <div>
+            <div class="hero-score-tag">
+              UX revamp <small>+ SEO content</small>
+            </div>
+            <p style="margin-top:0.35rem;font-size:0.72rem;color:var(--muted);">
+              For a B2B service, in 90 days after launch.
+            </p>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" aria-labelledby="services-heading">
+      <div class="section-header">
+        <div>
+          <p class="section-label">What we do</p>
+          <h2 class="section-title" id="services-heading">Brand marketing, UX design & content that work together.</h2>
+        </div>
+        <p class="section-subtitle">
+          Instead of random posts or disconnected pages, we design one coherent system – from your brand story to your booking flow.
+        </p>
+      </div>
+
+      <div class="service-grid">
+        <article class="card">
+          <div class="pill-mini">Brand & Positioning</div>
+          <h3>Brand foundations that feel like you</h3>
+          <p>
+            Clarify who you serve, why you’re different and how that translates into visuals, copy and UX.
+          </p>
+          <ul>
+            <li>Core message & value proposition</li>
+            <li>Brand voice & tone guidelines</li>
+            <li>Logo usage & visual direction</li>
+            <li>Story-driven homepage structure</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="pill-mini">UX / UI Design</div>
+          <h3>Conversion-first interfaces</h3>
+          <p>
+            We design flows that make it simple for visitors to understand, trust and take the next step.
+          </p>
+          <ul>
+            <li>Landing pages & service pages</li>
+            <li>Wireframes & high-fidelity UI</li>
+            <li>Booking & lead capture flows</li>
+            <li>Design systems for consistency</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="pill-mini">SEO Content & Blog</div>
+          <h3>Content that Google & humans like</h3>
+          <p>
+            We research topics and keywords, then create helpful content that supports your funnel.
+          </p>
+          <ul>
+            <li>SEO keyword & topic research</li>
+            <li>Blog strategy & editorial calendar</li>
+            <li>On-page SEO & internal linking</li>
+            <li>Content briefs or done-for-you writing</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- SEO SECTION -->
+    <section id="seo" aria-labelledby="seo-heading">
+      <div class="section-header">
+        <div>
+          <p class="section-label">SEO & discoverability</p>
+          <h2 class="section-title" id="seo-heading">Built-in SEO, not an afterthought.</h2>
+        </div>
+        <p class="section-subtitle">
+          From semantic HTML to blog architecture, we lay the groundwork so search engines can understand – and reward – your site.
+        </p>
+      </div>
+
+      <div class="seo-section">
+        <div class="seo-points">
+          <p>
+            Every page we design includes:
+          </p>
+          <ul>
+            <li>Clear, keyword-informed page titles and meta descriptions.</li>
+            <li>Accessible, semantic HTML structure with proper headings.</li>
+            <li>Fast, mobile-first layouts that users don’t bounce from.</li>
+            <li>Internal links that connect your services, case studies and blog posts.</li>
+            <li>Blog content mapped to search intent (awareness → decision).</li>
+          </ul>
+          <p style="margin-top:0.6rem;">
+            Want an SEO audit of your current site? Mention <strong>“SEO audit”</strong> in the message field when you book a call.
+          </p>
+        </div>
+
+        <aside class="seo-snippet" aria-label="Example Google search snippet">
+          <p class="seo-snippet-url">brandcraftstudio.com › services › ux-brand-seo</p>
+          <p class="seo-snippet-title">Brand marketing & UX design studio for growing businesses</p>
+          <p class="seo-snippet-extra">You visited this page · 2 days ago · ★★★★★ Rating</p>
+          <p class="seo-snippet-desc">
+            <span>BrandCraft Studio combines brand strategy, UX design and SEO-friendly content to help you turn website visitors into qualified leads. Book a free 20-minute discovery call.</span>
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- APPOINTMENTS / BOOKING -->
+    <section id="booking" aria-labelledby="booking-heading">
+      <div class="section-header">
+        <div>
+          <p class="section-label">Work with us</p>
+          <h2 class="section-title" id="booking-heading">Book a discovery call or project slot.</h2>
+        </div>
+        <p class="section-subtitle">
+          Share a bit about your brand, and we’ll get back within 24 hours with next steps and a calendar link.
+        </p>
+      </div>
+
+      <div class="booking-layout">
+        <div>
+          <form id="booking-form" novalidate>
+            <div class="field-group">
+              <label for="name">Name *</label>
+              <input type="text" id="name" name="name" placeholder="Your full name" required />
+              <div class="error-message" data-for="name">Please enter your name.</div>
+            </div>
+
+            <div class="field-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" placeholder="you@email.com" required />
+              <div class="error-message" data-for="email">Please enter a valid email.</div>
+            </div>
+
+            <div class="field-group">
+              <label for="company">Brand / Company</label>
+              <input type="text" id="company" name="company" placeholder="BrandCraft, Studio, etc." />
+            </div>
+
+            <div class="field-inline">
+              <div class="field-group">
+                <label for="service">What do you need? *</label>
+                <select id="service" name="service" required>
+                  <option value="">Select a focus</option>
+                  <option value="brand-ux">Brand & UX redesign</option>
+                  <option value="landing-page">High-converting landing page</option>
+                  <option value="seo-blog">SEO & blog content</option>
+                  <option value="ongoing">Ongoing growth partnership</option>
+                </select>
+                <div class="error-message" data-for="service">Select a service.</div>
+              </div>
+
+              <div class="field-group">
+                <label for="budget">Approx. budget (USD)</label>
+                <select id="budget" name="budget">
+                  <option value="">Not sure yet</option>
+                  <option value="under-1k">Under $1,000</option>
+                  <option value="1-3k">$1,000 – $3,000</option>
+                  <option value="3-5k">$3,000 – $5,000</option>
+                  <option value="5k-plus">$5,000+</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field-inline">
+              <div class="field-group">
+                <label for="date">Ideal start date</label>
+                <input type="date" id="date" name="date" />
+              </div>
+
+              <div class="field-group">
+                <label for="timezone">Your timezone</label>
+                <input type="text" id="timezone" name="timezone" placeholder="e.g. IST, PST, CET" />
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="message">Tell us about your project *</label>
+              <textarea id="message" name="message" placeholder="Where are you now, and what would success look like in 3–6 months?" required></textarea>
+              <div class="error-message" data-for="message">Please add a short project description.</div>
+            </div>
+
+            <p class="note">
+              We’ll review your message and reply with available time slots (and a few quick ideas) within one business day.
+            </p>
+
+            <button type="submit" class="btn btn-primary" style="margin-top:0.4rem;">
+              Submit inquiry
+            </button>
+            <div class="success-message" id="success-message">
+              Thanks for reaching out! This demo just simulates sending – in a real site, this form would email us or send data to your CRM.
+            </div>
+          </form>
+        </div>
+
+        <aside class="booking-aside">
+          <h3 style="font-size:0.95rem;margin-bottom:0.35rem;">What happens after you book?</h3>
+          <p>
+            1. We read your note and confirm if we’re a good fit.<br />
+            2. You receive a calendar link with 2–3 time options.<br />
+            3. On the call, we map your goals, gaps and next steps.
+          </p>
+
+          <p style="margin-top:0.6rem;font-size:0.82rem;">
+            Typical projects start within 1–3 weeks after our first call.
+          </p>
+
+          <p style="margin-top:0.9rem;font-size:0.82rem;">
+            Current openings:
+          </p>
+          <div class="slots" aria-label="Sample available slots">
+            <div class="slot">Next week: 2 spots</div>
+            <div class="slot">This month: 3 spots</div>
+            <div class="slot">Strategy intensives</div>
+            <div class="slot">Retainers (limited)</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- BLOG -->
+    <section id="blog" aria-labelledby="blog-heading">
+      <div class="section-header">
+        <div>
+          <p class="section-label">Blog & resources</p>
+          <h2 class="section-title" id="blog-heading">UX & SEO notes from the studio.</h2>
+        </div>
+        <p class="section-subtitle">
+          Use these posts to improve your own brand, landing pages and search presence – even before we work together.
+        </p>
+      </div>
+
+      <div class="blog-grid">
+        <article class="blog-card">
+          <p class="blog-tag">UX · Landing pages</p>
+          <h3>7 questions your homepage must answer in 5 seconds</h3>
+          <p class="blog-meta">Reading time · 5 min</p>
+          <p>
+            Most visitors skim, not read. Here’s how to structure your hero, proof and calls-to-action so busy people still “get it”.
+          </p>
+          <a href="#" class="read-more" aria-label="Read 7 questions your homepage must answer">Read article →</a>
+        </article>
+
+        <article class="blog-card">
+          <p class="blog-tag">SEO · Content</p>
+          <h3>Plan a simple SEO content hub in an afternoon</h3>
+          <p class="blog-meta">Reading time · 6 min</p>
+          <p>
+            A clear content hub helps search engines see you as an authority – and gives your visitors a natural path to learn and buy.
+          </p>
+          <a href="#" class="read-more" aria-label="Read Plan a simple SEO content hub">Read article →</a>
+        </article>
+
+        <article class="blog-card">
+          <p class="blog-tag">Brand · Strategy</p>
+          <h3>From “services list” to story: reposition your brand in 3 steps</h3>
+          <p class="blog-meta">Reading time · 4 min</p>
+          <p>
+            If your website feels like a menu of disconnected services, this framework will help you connect the dots.
+          </p>
+          <a href="#" class="read-more" aria-label="Read Reposition your brand in 3 steps">Read article →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-inner">
+        <p>© <span id="year"></span> BrandCraft Studio. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#top">Back to top ↑</a>
+          <a href="mailto:hello@yourdomain.com">Email</a>
+          <a href="#" aria-label="LinkedIn profile">LinkedIn</a>
+          <a href="#" aria-label="X (Twitter) profile">X</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Auto-set current year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Basic front-end validation simulation for booking form
+    const bookingForm = document.getElementById("booking-form");
+    const successMessage = document.getElementById("success-message");
+
+    bookingForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const requiredFields = ["name", "email", "service", "message"];
+      let valid = true;
+
+      requiredFields.forEach((fieldId) => {
+        const field = document.getElementById(fieldId);
+        const errorElement = document.querySelector(
+          `.error-message[data-for="${fieldId}"]`
+        );
+
+        if (!field.value.trim()) {
+          valid = false;
+          errorElement.style.display = "block";
+        } else {
+          if (fieldId === "email") {
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(field.value.trim())) {
+              valid = false;
+              errorElement.textContent = "Please enter a valid email.";
+              errorElement.style.display = "block";
+            } else {
+              errorElement.style.display = "none";
+            }
+          } else {
+            errorElement.style.display = "none";
+          }
+        }
+      });
+
+      if (!valid) {
+        successMessage.style.display = "none";
+        return;
+      }
+
+      // Simulate success (here you would send data to your backend / email service)
+      successMessage.style.display = "block";
+
+      // Optional: clear form
+      bookingForm.reset();
+    });
+  </script>
 </body>
 </html>
